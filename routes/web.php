@@ -13,7 +13,7 @@
 
 Route::get('/', 'WelcomeController@show')->name('home');
 
-Route::get('/home', 'HomeController@show');
+Route::get('home', 'HomeController@show');
 
 Route::resource('users', 'UserController');
 Route::resource('courses', 'CourseController');

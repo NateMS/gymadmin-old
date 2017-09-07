@@ -2,21 +2,22 @@
 
 return [
     'action'   => 'Aktion',
+    'cancel' => 'abbrechen',
     'coach'   => 'Leiter',
     'coaches'   => 'Leiter',
-
     'course'   => 'Kurs',
+    'course_edit' => 'Kurs :number bearbeiten',
     'courses'   => 'Kurse',
     'course_nr' => 'Kurs-Nr.',
     'date_from' => 'Startdatum',
     'date_to' => 'Enddatum',
     'deadline' => 'Anmeldeschluss',
-
     'edit'   => 'bearbeiten',
     'email'   => 'E-Mail Adresse',
     'location' => 'Ort',
     'name'   => 'Name',
     'participate' => 'teilnehmen',
+    'save' => 'speichern',
     'show' => 'anzeigen',
     'signup' => 'eintragen',
     'status' => 'Status',

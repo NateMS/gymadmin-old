@@ -1,3 +1,3 @@
 <!-- Left Side Of Navbar -->
-<li><a href="/users">Leiter</a></li>
-<li><a href="/courses">Kurse</a></li>
+<li>{{ Html::linkRoute('users.index', __('main.coaches')) }}</li>
+<li>{{ Html::linkRoute('courses.index', __('main.courses')) }}</li>

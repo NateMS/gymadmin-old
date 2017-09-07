@@ -10,50 +10,42 @@
                         <div class="panel-heading">{{__('main.courses')}}</div>
 
                         <div class="panel-body">
-                            {{ Form::model($course, array('route' => ['courses.update', $course->id], 'method' => 'PUT')) }}
-                                <div class="row">
-                                    <div class="col-md-6 col-sm-12">
-                                        <div class="panel panel-default">
-                                            <div class="panel-heading">
-                                                <h3 class="panel-title">{{ trans('main.course') }}</h3>
-                                            </div>
-                                            <div class="panel-body">
-                                                <div class="row">
-                                                    <div class="col-md-6 col-xs-12">
-                                                        <div class="input-group{{ $errors->has('date_from') ? ' has-error' : '' }}">
-                                                            {{ Form::label('date_from', trans('main.date_from')) }}
-                                                            {{ Form::text('date_from', $course->date_from->format(config('app.date_format')), ["data-toggle"=>"datepicker"]) }}
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6 col-xs-12">
-                                                        <div class="input-group{{ $errors->has('date_to') ? ' has-error' : '' }}">
-                                                            {{ Form::label('date_to', trans('main.date_to')) }}
-                                                            {{ Form::text('date_to', $course->date_to->format(config('app.date_format')), ["data-toggle"=>"datepicker"]) }}
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6 col-xs-12">
-                                                        <div class="input-group{{ $errors->has('location') ? ' has-error' : '' }}">
-                                                            {{ Form::label('location', trans('main.location')) }}
-                                                            {{ Form::text('location', old('location')) }}
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                            @if (!count($courses))
+                                <h3 class="text-center">{{__('main.no_entries')}}</h3>
+                            @else
 
-
-                                <button type="submit" class="btn btn-icon btn-success btn-large">
-                                    {!! svg('save') !!}
-                                    {{ 'blah' }}
-                                </button>
-
-                                <a href="{{ route('courses.show', [$course->id]) }}" class="btn btn-icon btn-danger btn-large">
-                                    {!! svg('cross-circle') !!}
-                                    {{ trans('main.cancel') }}
-                                </a>
-                            {{ Form::close() }}
+                                <table class="table table-striped ">
+                                    <thead>
+                                    <tr>
+                                        <th>{{__('main.course_nr')}}
+                                        <th>{{__('main.date_from')}}
+                                        <th>{{__('main.date_to')}}
+                                        <th>{{__('main.location')}}
+                                        <th>{{__('main.deadline')}}
+                                        <th>{{__('main.status')}}
+                                        <th>{{ __('main.action') }}
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    @foreach($courses as $course)
+                                        <tr class="clickable-row" data-href="{{ route('courses.show', ['course' => $course->id]) }}">
+                                            <td><a href="{{ $course->link }}" target="_blank">{{ $course->course_nr }}</a>
+                                            <td>{{ $course->date_from->format(config('app.date_format')) }}
+                                            <td>{{ $course->date_to->format(config('app.date_format')) }}
+                                            <td>{{ $course->location }}
+                                            <td>{{ $course->deadline->format(config('app.date_format')) }}
+                                            <td>{{ $user->courseStatus() }}
+                                            <td><a href="#" class="btn btn-icon btn-success">
+                                                    {{__('main.signup')}}
+                                                </a>
+                                                <a href="{{ route('courses.edit', [$course->id]) }}" class="btn btn-icon btn-warning">
+                                                    {{__('main.edit')}}
+                                                </a>
+                                        </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
+                            @endif
                         </div>
                     </div>
                 </div>
