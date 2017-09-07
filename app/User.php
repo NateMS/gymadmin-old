@@ -4,10 +4,14 @@ namespace App;
 
 use Laravel\Spark\CanJoinTeams;
 use Laravel\Spark\User as SparkUser;
+use Laracodes\Presenter\Traits\Presentable;
 
 class User extends SparkUser
 {
     use CanJoinTeams;
+    use Presentable;
+
+    protected $presenter = 'App\Presenters\UserPresenter';
     /**
      * The attributes that are mass assignable.
      *

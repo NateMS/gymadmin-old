@@ -36,6 +36,6 @@ trait DatePresenter
      */
     protected function getDateTimeFormated($date)
     {
-        return Carbon::parse($date)->format(config('app.locale') != 'en' ? 'd.m.Y H:i:s' : 'm/d/Y H:i:s');
+        return Carbon::parse($date)->format(config('app.date_format'));
     }
 }

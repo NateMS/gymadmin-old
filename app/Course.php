@@ -4,9 +4,13 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Carbon;
+use Laracodes\Presenter\Traits\Presentable;
 
 class Course extends Model
 {
+    use Presentable;
+
+    protected $presenter = 'App\Presenters\CoursePresenter';
 
     protected $dates = [
         'created_at',

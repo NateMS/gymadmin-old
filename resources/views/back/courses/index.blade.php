@@ -20,6 +20,7 @@
                                         <th>{{__('main.course_nr')}}
                                         <th>{{__('main.date_from')}}
                                         <th>{{__('main.date_to')}}
+                                        <th>{{__('main.duration')}}
                                         <th>{{__('main.location')}}
                                         <th>{{__('main.deadline')}}
                                         <th>{{__('main.status')}}
@@ -29,11 +30,12 @@
                                     <tbody>
                                     @foreach($courses as $course)
                                         <tr class="clickable-row" data-href="{{ route('courses.show', ['course' => $course->id]) }}">
-                                            <td><a href="{{ $course->link }}" target="_blank">{{ $course->course_nr }}</a>
-                                            <td>{{ $course->date_from->format(config('app.date_format')) }}
-                                            <td>{{ $course->date_to->format(config('app.date_format')) }}
-                                            <td>{{ $course->location }}
-                                            <td>{{ $course->deadline->format(config('app.date_format')) }}
+                                            <td><a href="{{ $course->present()->link }}" target="_blank">{{ $course->present()->course_nr }}</a>
+                                            <td>{{ $course->present()->date_from }}
+                                            <td>{{ $course->present()->date_to }}
+                                            <td>{{ $course->present()->duration }}
+                                            <td>{{ $course->present()->location }}
+                                            <td>{{ $course->present()->deadline }}
                                             <td>{{ $user->courseStatus() }}
                                             <td><a href="#" class="btn btn-icon btn-success">
                                                     {{__('main.signup')}}

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "63e1798d60f9868369d94ed332c3050e",
+    "content-hash": "b1a6a193c3a44f26d84b9ee8c9e1af77",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -420,6 +420,56 @@
             "description": "A simple library to encode and decode JSON Web Tokens (JWT) in PHP. Should conform to the current spec.",
             "homepage": "https://github.com/firebase/php-jwt",
             "time": "2016-07-18T04:51:16+00:00"
+        },
+        {
+            "name": "guilhermegonzaga/presenter",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guilhermegonzaga/presenter.git",
+                "reference": "312cdd3e2f7ed519f90679a156ffbe10b170cec2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guilhermegonzaga/presenter/zipball/312cdd3e2f7ed519f90679a156ffbe10b170cec2",
+                "reference": "312cdd3e2f7ed519f90679a156ffbe10b170cec2",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "~5.0",
+                "illuminate/support": "~5.0",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~5.2"
+            },
+            "suggest": {
+                "guilhermegonzaga/repository": "Repositories for Laravel 5 which is used to abstract the database layer."
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Laracodes\\Presenter\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Guilherme de Oliveira Gonzaga",
+                    "email": "guilhermeoliveyra@hotmail.com"
+                }
+            ],
+            "description": "Implementation for Laravel 5 of the presenter design pattern.",
+            "keywords": [
+                "entity",
+                "laravel",
+                "presenter",
+                "view"
+            ],
+            "time": "2016-03-10T16:07:29+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
