@@ -13,11 +13,11 @@ class SparkServiceProvider extends ServiceProvider
      * @var array
      */
     protected $details = [
-        'vendor' => 'Your Company',
-        'product' => 'Your Product',
-        'street' => 'PO Box 111',
-        'location' => 'Your Town, NY 12345',
-        'phone' => '555-555-5555',
+        'vendor' => 'Nadim Salloum',
+        'product' => 'gymadmin',
+        'street' => 'Mattenstrasse 7',
+        'location' => '5507 Mellingen',
+        'phone' => '078 865 55 50',
     ];
 
     /**
@@ -25,7 +25,7 @@ class SparkServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    protected $sendSupportEmailsTo = null;
+    protected $sendSupportEmailsTo = 'hello@salloum.ch';
 
     /**
      * All of the application developer e-mail addresses.
@@ -50,7 +50,7 @@ class SparkServiceProvider extends ServiceProvider
      */
     public function booted()
     {
-        Spark::useStripe()->noCardUpFront()->trialDays(10);
+        Spark::useStripe()->noCardUpFront()->trialDays(10000);
 
         Spark::freePlan()
             ->features([
@@ -65,6 +65,5 @@ class SparkServiceProvider extends ServiceProvider
     }
 
     public function regiser(){
-        Spark::referToTeamAs('group');
     }
 }
