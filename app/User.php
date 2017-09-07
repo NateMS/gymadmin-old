@@ -40,6 +40,11 @@ class User extends SparkUser
         'extra_billing_information',
     ];
 
+    protected $dates = [
+        'created_at',
+        'updated_at'
+    ];
+
     /**
      * The attributes that should be cast to native types.
      *
@@ -53,5 +58,10 @@ class User extends SparkUser
     public function courses()
     {
         return $this->hasMany(Course::class);
+    }
+
+    public function courseStatus()
+    {
+        return '-';
     }
 }

@@ -16,6 +16,9 @@ return [
     'email'   => 'E-Mail Adresse',
     'location' => 'Ort',
     'name'   => 'Name',
+    'participate' => 'teilnehmen',
+    'show' => 'anzeigen',
+    'signup' => 'eintragen',
     'status' => 'Status',
     'user'   => 'Benutzer',
 ];

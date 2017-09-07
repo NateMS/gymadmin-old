@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Course;
+use App\Http\Requests\CourseRequest;
 use Illuminate\Http\Request;
 
 class CourseController extends Controller
@@ -20,7 +21,8 @@ class CourseController extends Controller
     public function index()
     {
         $courses = Course::all();
-        return view('back.courses.index')->with('courses', $courses);
+        $user = \Auth::user();
+        return view('back.courses.index', compact('courses', 'user'));
     }
 
     /**
@@ -36,10 +38,10 @@ class CourseController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\CourseRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CourseRequest $request)
     {
         //
     }
@@ -69,11 +71,11 @@ class CourseController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\CourseRequest  $request
      * @param  \App\Course  $course
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Course $course)
+    public function update(CourseRequest $request, Course $course)
     {
         //
     }

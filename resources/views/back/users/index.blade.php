@@ -17,19 +17,19 @@
                                     <thead>
                                         <tr>
                                             <th>{{__('main.name')}}
-                                            <th>{{__('main.name')}}
+                                            <th>{{__('main.email')}}
                                             <th>{{__('main.name')}}
                                             <th>{{ __('main.action') }}
                                         </tr>
                                     </thead>
                                     <tbody>
                                     @foreach($users as $user)
-                                        <tr class="clickable-row" data-href="{{ route('users.show', ['$user' => $user->id]) }}">
+                                        <tr>
+                                            <td>{{ $user->name }}
                                             <td>{{ $user->email }}
                                             <td>{{ $user->email }}
-                                            <td>{{ $user->email }}
-                                            <td><a href="{{ route('users.edit', [$user->id]) }}" class="btn btn-icon btn-warning">
-                                                    {{__('main.edit')}}
+                                            <td><a href="{{ route('users.show', [$user->id]) }}" class="btn btn-icon btn-primary">
+                                                    {{__('main.show')}}
                                                 </a>
                                         </tr>
                                     @endforeach
