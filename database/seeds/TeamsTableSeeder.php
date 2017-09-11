@@ -17,7 +17,5 @@ class TeamsTableSeeder extends Seeder
             'name' => 'TSV Rohrdorf KuTu',
             'slug' => 'tsvrohrdorf'
         ]);
-
-       // $team->users()->attach(App\User::all());
     }
 }

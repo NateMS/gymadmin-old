@@ -19,10 +19,14 @@ class UsersTableSeeder extends Seeder
         ]);
 
         $user->teams()->attach(1, ['role' => 'owner']);
+        $user->assign('coach');
+        $user->assign('coach-admin');
+
         factory(User::class, 50)
             ->create()
             ->each(function ($u) {
                 $u->teams()->attach(1, ['role' => 'user']);
+                $u->assign('coach');
             });;
     }
 }

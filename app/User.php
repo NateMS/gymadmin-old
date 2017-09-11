@@ -5,11 +5,11 @@ namespace App;
 use Laravel\Spark\CanJoinTeams;
 use Laravel\Spark\User as SparkUser;
 use Laracodes\Presenter\Traits\Presentable;
+use Silber\Bouncer\Database\HasRolesAndAbilities;
 
 class User extends SparkUser
 {
-    use CanJoinTeams;
-    use Presentable;
+    use CanJoinTeams, Presentable, HasRolesAndAbilities;
 
     protected $presenter = 'App\Presenters\UserPresenter';
     /**
