@@ -7,6 +7,14 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="panel panel-default">
+                        <div class="panel-heading">{{__('main.coursetypes')}}</div>
+
+                        <div class="panel-body">
+                            {{ Html::linkRoute('coursetypes.create', __('main.coursetype_create'), [], ['class' => 'btn btn-success']) }}
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default">
                         <div class="panel-heading">{{__('main.courses')}}</div>
 
                         <div class="panel-body">
@@ -37,12 +45,17 @@
                                             <td>{{ $course->present()->location }}
                                             <td>{{ $course->present()->deadline }}
                                             <td>{{ $user->courseStatus() }}
-                                            <td><a href="#" class="btn btn-icon btn-success">
-                                                    {{__('main.signup')}}
-                                                </a>
-                                                <a href="{{ route('courses.edit', [$course->id]) }}" class="btn btn-icon btn-warning">
-                                                    {{__('main.edit')}}
-                                                </a>
+                                            <td>
+                                                @can ('signup', App\Course::class)
+                                                    <a href="#" class="btn btn-icon btn-success">
+                                                        {{__('main.signup')}}
+                                                    </a>
+                                                @endcan
+                                                @can ('edit', App\Course::class)
+                                                    <a href="{{ route('courses.edit', [$course->id]) }}" class="btn btn-icon btn-warning">
+                                                        {{__('main.edit')}}
+                                                    </a>
+                                                @endcan
                                         </tr>
                                     @endforeach
                                     </tbody>

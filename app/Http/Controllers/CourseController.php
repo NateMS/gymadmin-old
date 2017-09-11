@@ -80,6 +80,11 @@ class CourseController extends Controller
         //
     }
 
+    public function signup(CourseRequest $request, Course $course)
+    {
+        //
+    }
+
     /**
      * Remove the specified resource from storage.
      *

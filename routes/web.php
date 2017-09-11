@@ -13,7 +13,10 @@
 
 Route::get('/', 'WelcomeController@show')->name('home');
 
-Route::get('home', 'HomeController@show');
+Route::prefix('backend')->group(function () {
+    Route::get('/', 'HomeController@show')->name('dashboard');
+    Route::resource('users', 'UserController');
+    Route::resource('courses', 'CourseController');
+    Route::resource('coursetypes', 'CourseTypeController');
+});
 
-Route::resource('users', 'UserController');
-Route::resource('courses', 'CourseController');

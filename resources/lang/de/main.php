@@ -9,6 +9,8 @@ return [
     'course_edit' => 'Kurs :number bearbeiten',
     'courses'   => 'Kurse',
     'course_nr' => 'Kurs-Nr.',
+    'coursetypes' => 'Kursarten',
+    'coursetype_create' => 'Neue Kursart',
     'date_from' => 'Startdatum',
     'date_to' => 'Enddatum',
     'days' => 'Tag|Tage',
