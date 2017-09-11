@@ -20612,7 +20612,7 @@ window.SparkFormErrors = function () {
      * Set the raw errors for the collection.
      */
     this.set = function (errors) {
-        if ((typeof errors === 'undefined' ? 'undefined' : _typeof(errors)) === 'object') {
+        if (errors.errors && _typeof(errors.errors) === 'object') {
             this.errors = errors;
         } else {
             this.errors = { 'form': ['Something went wrong. Please try again or contact customer support.'] };

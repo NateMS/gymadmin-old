@@ -10,7 +10,7 @@
         "guilhermegonzaga/presenter": "^1.0",
         "laravel/cashier": "~7.0",
         "laravel/framework": "5.5.*",
-        "laravel/spark": "~4.0",
+        "laravel/spark": "~5.0",
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "^5.4.0",
         "silber/bouncer": "v1.0.0-beta.4"
