@@ -11,6 +11,7 @@
 
                         <div class="panel-body">
                             {{ Html::linkRoute('coursetypes.create', __('main.coursetype_create'), [], ['class' => 'btn btn-success']) }}
+                            {{ Html::linkRoute('courses.create', __('main.coursetype_create'), [], ['class' => 'btn btn-success']) }}
                         </div>
                     </div>
 
