@@ -68,4 +68,9 @@ class User extends SparkUser
     {
         return '-';
     }
+
+    public function isCoach()
+    {
+        return true; // TODO add correct check
+    }
 }
