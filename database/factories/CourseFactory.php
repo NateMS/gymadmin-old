@@ -16,7 +16,7 @@ $factory->define(App\Course::class, function (Faker $faker) {
                                 return App\Team::inRandomOrder()->first()->id;
                             },
         'location'       => $faker->city,
-        'date_from'      => $date,
+        'date_from'      => (Carbon::instance($date)),
         'date_to'        => (Carbon::instance($date))->addDays(rand(1, 4)),
         'deadline'       => (Carbon::instance($date))->subMonths(2),
         'link'           => $faker->url

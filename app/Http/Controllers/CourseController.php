@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Course;
+use App\CourseType;
 use App\Http\Requests\CourseRequest;
 use Illuminate\Http\Request;
 
@@ -32,7 +33,8 @@ class CourseController extends Controller
      */
     public function create()
     {
-        //
+        $courseTypes = CourseType::orderBy('name', 'asc')->pluck('name', 'id');;
+        return view('back.courses.create', compact('courseTypes'));
     }
 
     /**
@@ -43,7 +45,11 @@ class CourseController extends Controller
      */
     public function store(CourseRequest $request)
     {
-        //
+        $course = new Course($request->validated());
+        $course->team_id = \Auth::user()->currentTeam->id;
+
+        $course->save();
+        return redirect()->route('courses.show', compact('course'));
     }
 
     /**
@@ -80,9 +86,9 @@ class CourseController extends Controller
         //
     }
 
-    public function signup(CourseRequest $request, Course $course)
+    public function signup(Course $course)
     {
-        //
+        dd($course);
     }
 
     /**

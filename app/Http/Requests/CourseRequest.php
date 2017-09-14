@@ -2,8 +2,11 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Validation\Rule;
+
 class CourseRequest extends Request
 {
+
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -23,8 +26,13 @@ class CourseRequest extends Request
     {
         $rules = [
             'course_nr' => 'required|max:255',
-            'team_id'   => 'required|numeric',
             'location'  => 'required|max:255',
+            'course_type_id' => [
+                                    'required',
+                                    Rule::exists('course_types', 'id')->where(function ($query) {
+                                        $query->where('team_id', \Auth::user()->currentTeam->id);
+                                    }),
+                                  ],
             'date_from' => 'required|date|date_format:d.m.Y',
             'date_to'   => 'required|date|date_format:d.m.Y',
             'deadline'  => 'required|date|date_format:d.m.Y',
