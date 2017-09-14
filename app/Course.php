@@ -21,13 +21,38 @@ class Course extends Model
         'deadline'
     ];
 
+    protected $fillable = [
+        'course_nr',
+        'course_type_id',
+        'location',
+        'date_from',
+        'date_to',
+        'deadline',
+        'link'
+    ];
+
     public function CourseType()
     {
-        return $this->belongsTo(CourseType::class);
+        return $this->belongsTo('App\CourseType');
     }
 
     public function participants()
     {
-        return $this->belongsToMany(User::class);
+        return $this->belongsToMany('App\User');
+    }
+
+    public function setDateFromAttribute($value)
+    {
+        $this->attributes['date_from'] = (new Carbon($value))->format('Y-m-d');
+    }
+
+    public function setDateToAttribute($value)
+    {
+        $this->attributes['date_to'] = (new Carbon($value))->format('Y-m-d');
+    }
+
+    public function setDeadlineAttribute($value)
+    {
+        $this->attributes['deadline'] = (new Carbon($value))->format('Y-m-d');
     }
 }

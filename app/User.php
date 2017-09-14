@@ -61,10 +61,10 @@ class User extends SparkUser
 
     public function courses()
     {
-        return $this->hasMany(Course::class);
+        return $this->belongsToMany('App\Course');
     }
 
-    public function courseStatus()
+    public function courseStatus(Course $course)
     {
         return '-';
     }
