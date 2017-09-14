@@ -2,13 +2,14 @@
 
 namespace App;
 
+use App\Traits\UsedByTeams;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
-use Carbon;
 use Laracodes\Presenter\Traits\Presentable;
 
 class Course extends Model
 {
-    use Presentable;
+    use Presentable, UsedByTeams;
 
     protected $presenter = 'App\Presenters\CoursePresenter';
 
