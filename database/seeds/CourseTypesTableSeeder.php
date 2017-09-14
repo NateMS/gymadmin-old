@@ -22,7 +22,8 @@ class CourseTypesTableSeeder extends Seeder
 
         foreach ($courseTypes as $courseType) {
             CourseType::create([
-                'name'   => $courseType['name']
+                'name'   => $courseType['name'],
+                'team_id' => 1
             ]);
         }
     }

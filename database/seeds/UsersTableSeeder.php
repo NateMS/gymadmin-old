@@ -22,6 +22,8 @@ class UsersTableSeeder extends Seeder
         $user->assign('coach');
         $user->assign('coach-admin');
 
+        auth()->login($user);
+
         factory(User::class, 50)
             ->create()
             ->each(function ($u) {
