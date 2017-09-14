@@ -18,5 +18,13 @@ Route::prefix('backend')->group(function () {
     Route::resource('users', 'UserController');
     Route::resource('courses', 'CourseController');
     Route::resource('coursetypes', 'CourseTypeController');
+
+});
+
+/* this allows looking at emails directly in the browser */
+Route::prefix('email')->group(function () {
+    Route::get('coursesignupconfirmation', function () {
+        return new App\Mail\CourseSignUpConfirmation();
+    });
 });
 
