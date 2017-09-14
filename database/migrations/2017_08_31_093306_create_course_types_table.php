@@ -16,7 +16,14 @@ class CreateCourseTypesTable extends Migration
         Schema::create('course_types', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->integer('team_id')->unsigned();
             $table->timestamps();
+
+
+            $table->foreign('team_id')
+                ->references('id')
+                ->on('teams')
+                ->onDelete('cascade');
         });
     }
 

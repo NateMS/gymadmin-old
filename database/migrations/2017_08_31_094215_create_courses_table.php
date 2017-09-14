@@ -16,8 +16,8 @@ class CreateCoursesTable extends Migration
     Schema::create('courses', function (Blueprint $table) {
         $table->increments('id');
         $table->string('course_nr');
-        $table->integer('course_type_id');
-        $table->integer('team_id');
+        $table->integer('course_type_id')->unsigned();
+        $table->integer('team_id')->unsigned();
         $table->string('location');
         $table->date('date_from');
         $table->date('date_to');
@@ -25,7 +25,15 @@ class CreateCoursesTable extends Migration
         $table->string('link');
         $table->timestamps();
 
-        $table->unique('course_nr');
+        $table->foreign('team_id')
+            ->references('id')
+            ->on('teams')
+            ->onDelete('cascade');
+
+        $table->foreign('course_type_id')
+            ->references('id')
+            ->on('course_types')
+            ->onDelete('cascade');
     });
 
 
