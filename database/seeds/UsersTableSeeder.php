@@ -13,7 +13,14 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         $user = User::create([
-            'name'     => 'Nadim Salloum',
+            'firstname'     => 'Nadim',
+            'lastname' => 'Salloum',
+            'address' => 'Mattenstrasse 7',
+            'zip' => '5507',
+            'city' => 'Mellingen',
+            'js_number' => '32423344',
+            'stv_number' => '12341234',
+            'iban' => 'CH10 1234 1234 12',
             'email'    => 'nadim@salloum.ch',
             'password' => bcrypt('secret')
         ]);

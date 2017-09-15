@@ -18,6 +18,7 @@
                                         <tr>
                                             <th>{{__('main.name')}}
                                             <th>{{__('main.email')}}
+                                            <th>{{__('main.duration')}}
                                             <th>{{ __('main.action') }}
                                         </tr>
                                     </thead>
@@ -25,7 +26,7 @@
                                     @foreach($users as $user)
                                         <tr>
                                             <td>{{ $user->present()->name }}
-                                            <td>{{ $user->present()->email }}
+                                            <td>{!! $user->present()->emailLink !!}
                                             <td><a href="{{ route('users.show', [$user->id]) }}" class="btn btn-icon btn-primary">
                                                     {{__('main.show')}}
                                                 </a>

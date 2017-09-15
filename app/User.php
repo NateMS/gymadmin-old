@@ -18,7 +18,14 @@ class User extends SparkUser
      * @var array
      */
     protected $fillable = [
-        'name',
+        'firstname',
+        'lastname',
+        'address',
+        'zip',
+        'city',
+        'js_number',
+        'stv_number',
+        'iban',
         'email',
     ];
 
@@ -68,10 +75,5 @@ class User extends SparkUser
     {
         //dump(CourseStatus::where('course_id', $course->id)->where('user_id', $user->id));
         return '-';
-    }
-
-    public function isCoach()
-    {
-        return true; // TODO add correct check
     }
 }
