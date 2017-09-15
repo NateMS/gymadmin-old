@@ -45,7 +45,7 @@
                                             <td>{{ $course->present()->duration }}
                                             <td>{{ $course->present()->location }}
                                             <td>{{ $course->present()->deadline }}
-                                            <td>{{ $user->courseStatus() }}
+                                            <td>{{ $user->courseStatus($course, auth()->user()) }}
                                             <td>
                                                 @can ('signup', App\Course::class)
                                                     <a href="#" class="btn btn-icon btn-success">

@@ -61,11 +61,12 @@ class User extends SparkUser
 
     public function courses()
     {
-        return $this->belongsToMany('App\Course');
+        return $this->belongsToMany('App\Course')->withPivot('status_id');
     }
 
-    public function courseStatus(Course $course)
+    public function courseStatus(Course $course, User $user)
     {
+        //dump(CourseStatus::where('course_id', $course->id)->where('user_id', $user->id));
         return '-';
     }
 

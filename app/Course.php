@@ -38,7 +38,7 @@ class Course extends Model
 
     public function participants()
     {
-        return $this->belongsToMany('App\User');
+        return $this->belongsToMany('App\User')->withPivot('status_id');
     }
 
     public function setDateFromAttribute($value)

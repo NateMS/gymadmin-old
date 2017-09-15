@@ -33,7 +33,7 @@ class CourseController extends Controller
      */
     public function create()
     {
-        $courseTypes = CourseType::orderBy('name', 'asc')->pluck('name', 'id');;
+        $courseTypes = CourseType::with('participants')->orderBy('name', 'asc')->pluck('name', 'id');;
         return view('back.courses.create', compact('courseTypes'));
     }
 
@@ -46,7 +46,7 @@ class CourseController extends Controller
     public function store(CourseRequest $request)
     {
         $course = new Course($request->validated());
-        $course->team_id = \Auth::user()->currentTeam->id;
+        $course->team_id = auth()->user()->currentTeam->id;
 
         $course->save();
         return redirect()->route('courses.show', compact('course'));
@@ -60,7 +60,7 @@ class CourseController extends Controller
      */
     public function show(Course $course)
     {
-        //
+        return view('back.courses.show', compact('course'));
     }
 
     /**
