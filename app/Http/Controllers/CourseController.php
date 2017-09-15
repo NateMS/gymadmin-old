@@ -21,9 +21,9 @@ class CourseController extends Controller
      */
     public function index()
     {
-        $courses = Course::all();
-        $user = \Auth::user();
-        return view('back.courses.index', compact('courses', 'user'));
+        $coursesByType = CourseType::with('courses')->get();
+        $user = auth()->user();
+        return view('back.courses.index', compact('coursesByType', 'user'));
     }
 
     /**
@@ -83,7 +83,10 @@ class CourseController extends Controller
      */
     public function update(CourseRequest $request, Course $course)
     {
-        //
+        dd('test');
+        $course = $course->fill($request->validated());
+        $course->save();
+        return redirect()->route('courses.show', compact('course'));
     }
 
     public function signup(Course $course)
@@ -99,6 +102,6 @@ class CourseController extends Controller
      */
     public function destroy(Course $course)
     {
-        //
+        return false;
     }
 }

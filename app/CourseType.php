@@ -12,4 +12,9 @@ class CourseType extends Model
 
     protected $presenter = 'App\Presenters\CoursePresenter';
     protected $table = 'course_types';
+
+    public function courses()
+    {
+        return $this->hasMany('App\Course');
+    }
 }

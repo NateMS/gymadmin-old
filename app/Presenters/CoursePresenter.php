@@ -30,6 +30,12 @@ class CoursePresenter extends Presenter
         return $this->getDateTimeFormated($this->model->date_to);
     }
 
+
+    public function date()
+    {
+        return $this->dateFrom() . ' - ' . $this->dateTo() . ' (' . $this->duration() . ')';
+    }
+
     public function deadline()
     {
         return $this->getDateTimeFormated($this->model->deadline);
