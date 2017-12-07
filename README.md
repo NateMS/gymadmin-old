@@ -1,11 +1,11 @@
-#gymadmin.ch
+# gymadmin.ch
 by Nadim Salloum
 
-##dev environment
+## dev environment
 
-##application
+## application
 
-###courses
+### courses
 A coach can have various statuses for each course:
 
 - no status (Kein Status)
